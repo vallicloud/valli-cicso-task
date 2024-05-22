@@ -52,3 +52,18 @@ def view_all():
     return render_template("all.html", malware_status=malware_status)
 
 
+# Handling GET request for a specific URL's malware status 
+@app.route("/v1/urlinfo/<url>")
+@login_required
+def lookup(url): 
+    result = MalwareURL.query.filter_by(url=url).all()
+    if(len(result) == 0):
+        result = ["URL NOT FOUND IN DATABASE!!! Please contact Admin"]
+    if(len(result) > 1):
+        result = ["INCONSISTENCIES IN DATABASE!!! Please contact Admin"]
+    return render_template("lookup.html", url=url, result=result)
+
+
+# Defining and starting the server for the service 
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=9000, debug=True)
