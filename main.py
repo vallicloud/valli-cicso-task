@@ -33,3 +33,22 @@ class MalwareURL(db.Model):
 
     def __repr__(self):
         return '{}'.format(self.status)
+
+@app.route("/")
+def welcome():
+    return render_template('welcome.html') 
+
+
+# Post log in landing page
+@app.route("/home")
+@login_required
+def home():
+    return render_template("home.html")
+
+
+@app.route("/v1/urlinfo/all")
+def view_all():
+    malware_status = MalwareURL.query.all()
+    return render_template("all.html", malware_status=malware_status)
+
+

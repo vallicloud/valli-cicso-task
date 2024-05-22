@@ -1,0 +1,16 @@
+<!-- complete list template -->
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<br>
+{% for ele in malware_status %}
+  <strong>URL:</strong> {{ ele.url }} <br>
+  <strong>Status:</strong> {{ ele.status }} <br>
+<br>
+{% endfor %}
+<br>
+<br>
+
+{% endblock %}
