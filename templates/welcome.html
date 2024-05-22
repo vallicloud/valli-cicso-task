@@ -5,10 +5,9 @@
 {% block content %}
 
 <br>
-<h3> Welcome! </h3> 
-<h3> Please log in to access the other API endpoints! </h3> 
-<br>
-<p><a href="{{ url_for('login') }}"> LOG IN!</a></p>
+<h3> Welcome! This Service serves 2 API's </h3> 
+<h3> Please access API "/v1/urlinfo/all" to list all Malware URL's </h3> 
+<h3> Please access API "/v1/urlinfo/</url>" to look up any URL for Malware </h3>
 <br>
 {% for message in get_flashed_messages() %}
   {{ message }}
