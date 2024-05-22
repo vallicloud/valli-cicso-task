@@ -1,6 +1,6 @@
 # Importing all database and table definitions from primary "app.py" 
-import app 
-from app import * 
+import main 
+from main import * 
 
 with app.app_context():
     # Create the database and the database table

@@ -41,7 +41,6 @@ def welcome():
 
 # Post log in landing page
 @app.route("/home")
-@login_required
 def home():
     return render_template("home.html")
 
@@ -54,7 +53,6 @@ def view_all():
 
 # Handling GET request for a specific URL's malware status 
 @app.route("/v1/urlinfo/<url>")
-@login_required
 def lookup(url): 
     result = MalwareURL.query.filter_by(url=url).all()
     if(len(result) == 0):
